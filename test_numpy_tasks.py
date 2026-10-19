@@ -110,6 +110,12 @@ def test_binarize_default_threshold():
     result = binarize(BinarizeInput(matrix=matrix))
     assert np.array_equal(result, np.array([[0, 1, 0]]))
 
+def test_binarize_input_not_modified():
+    # функция возвращает новую матрицу, вход не меняет как и задано по условию
+    matrix = np.array([[1, 5], [7, 2]])
+    binarize(BinarizeInput(matrix=matrix, threshold=3))
+    assert np.array_equal(matrix, np.array([[1, 5], [7, 2]]))
+
 
 ### Задача 3. Уникальные элементы строк и столбцов
 
